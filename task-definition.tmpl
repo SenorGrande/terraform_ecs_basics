@@ -1,0 +1,17 @@
+${jsonencode(
+[
+  {
+    "name": "${container_name}",
+    "image": "${container_image}",
+    "essential": true,
+    "portMappings": [
+      {
+        "containerPort": 80,
+        "hostPort": 80
+      }
+    ],
+    "memory": 500,
+    "cpu": 10
+  }
+]
+)}

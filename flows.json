@@ -1,0 +1,98 @@
+[
+    {
+        "id": "1f5648c3.e223a7",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "82b8e87e.57bea",
+        "type": "http response",
+        "z": "1f5648c3.e223a7",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 490,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "eb9fdf9e.0b90d",
+        "type": "http in",
+        "z": "1f5648c3.e223a7",
+        "name": "",
+        "url": "/test",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 180,
+        "wires": [
+            [
+                "321fa94d.43b716"
+            ]
+        ]
+    },
+    {
+        "id": "dd417537.a723",
+        "type": "http in",
+        "z": "1f5648c3.e223a7",
+        "name": "",
+        "url": "/hello",
+        "method": "get",
+        "swaggerDoc": "",
+        "x": 200,
+        "y": 260,
+        "wires": [
+            [
+                "1153ef28.5c37c1"
+            ]
+        ]
+    },
+    {
+        "id": "1153ef28.5c37c1",
+        "type": "template",
+        "z": "1f5648c3.e223a7",
+        "name": "page",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<html>\n    <head></head>\n    <body>\n        <h1>Hello World!</h1>\n    </body>\n</html>",
+        "x": 350,
+        "y": 260,
+        "wires": [
+            [
+                "d0debd64.1791f8"
+            ]
+        ]
+    },
+    {
+        "id": "d0debd64.1791f8",
+        "type": "http response",
+        "z": "1f5648c3.e223a7",
+        "name": "",
+        "x": 490,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "321fa94d.43b716",
+        "type": "function",
+        "z": "1f5648c3.e223a7",
+        "name": "",
+        "func": "rng = Math.floor(Math.random() * 5);\nif (rng === 0) {\n    msg.payload = { \"value\": \"time to get credit carded\" };\n} else if (rng === 1) {\n    msg.payload = { \"value\": \"OI FUCK YOU GUVNA\" };\n} else if (rng === 2) {\n    msg.payload = { \"value\": \"It's time to D-D-D-DUEL\" };\n} else if (rng === 3) {\n    msg.payload = { \"value\": \"Nelly is duh Pokimane master\"};\n} else if (rng === 4) {\n    msg.payload = { \"value\": \"Michael is illegal hackerman. Shhh\"};\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 360,
+        "y": 180,
+        "wires": [
+            [
+                "82b8e87e.57bea"
+            ]
+        ]
+    }
+]
